@@ -1,3 +1,15 @@
+---
+Orion-Doc: methodology
+Categoria: Planejamento e Governança
+Versão: vE1.3
+Data: 2025-10-18
+Atualização: obrigatória ao alterar processo ou rito
+Descrição: Documento de governança metodológica. Define papéis, cerimônias, fluxo Git, critérios de qualidade e extensões ACO e Verificação Documental Orion.
+Responsável: Bruno (Engenheiro Fullstack)
+Fiscal: IA Orion (Diretor Técnico Virtual)
+Fonte de verdade: Sim
+---
+
 # Metodologia Orion — Operação do Projeto
 
 ## Papéis
@@ -119,3 +131,71 @@ Antes do início de qualquer tarefa (Sprint ou Task), o Diretor Técnico Virtual
 **Status da Extensão:** Ativa (Sprint 1 - Tarefa 4)
 **Aplicação obrigatória:** A partir da Tarefa 5
 ```
+
+---
+
+## 🧩 Extensão Metodológica — Protocolo de Verificação Documental Orion vE1.3
+
+### 1. Propósito
+
+Garantir que a documentação e o código permaneçam **sincronizados semanticamente**, evitando a degradação cognitiva do projeto (“entropia Orion”).
+Esse protocolo define dois níveis de verificação, aplicáveis conforme a granularidade do ciclo: **por tarefa** e **por sprint**.
+
+---
+
+### 2. Verificação Leve (por Tarefa)
+
+Executada ao final de **cada tarefa individual**.
+Objetivo: confirmar que todas as alterações práticas estão refletidas na documentação.
+
+**Checklist obrigatório:**
+
+1. `tasks.md` atualizado com status, branch e commit final.
+2. Se houve impacto estrutural, atualizar `architecture.md`.
+3. Se houve exceção de processo ou decisão emergencial, registrar no final de `methodology.md` como observação temporária.
+
+Duração estimada: **5 a 10 minutos**.
+Resultado esperado: documentação e código permanecem em sintonia local.
+
+---
+
+### 3. Verificação Completa (por Sprint)
+
+Executada ao final de **cada sprint**.
+Objetivo: consolidar a coerência global entre **visão, metodologia, execução e arquitetura**.
+
+**Checklist obrigatório:**
+
+1. Revisar todos os arquivos do `/doc` (`vision.md`, `methodology.md`, `tasks.md`, `architecture.md`).
+2. Confirmar que o estado do sistema respeita a visão e os princípios do projeto.
+3. Atualizar versões e cabeçalhos se houver mudança significativa.
+4. Registrar aprendizados em `retrospective.md` (caso aplicável).
+
+Duração estimada: **30 a 45 minutos**.
+Resultado esperado: ciclo cognitivo completo e documentação validada como fonte de verdade.
+
+---
+
+### 4. Política de Registro
+
+Toda verificação — leve ou completa — deve ser seguida de um commit com o formato:
+
+```bash
+docs(check): verificação documental <nível> — Sprint <n>
+```
+
+E, quando aplicável, uma atualização de versão:
+
+```bash
+Versão: vE1.3
+Descrição: Adiciona protocolo de verificação documental Orion
+```
+
+---
+
+### 5. Benefícios
+
+- Mantém o projeto **epistemologicamente coeso**.
+- Reduz retrabalho e decisões conflitantes.
+- Transforma documentação em _ferramenta de navegação_, não em peso burocrático.
+- Garante que qualquer novo colaborador (ou IA) possa retomar o raciocínio sem perda de contexto.

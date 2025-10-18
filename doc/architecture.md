@@ -146,6 +146,36 @@ Estrutura validada e consolidada na **Sprint 1 – Tarefa 4**, conforme nota de 
 
 ---
 
-**Autor:** Bruno (Engenheiro Fullstack)
-**Diretor Técnico Virtual:** IA Orion
-**Última revisão:** Sprint 1 — Tarefa 4
+## 🧾 Regras de Governança Arquitetural Orion
+
+### 1. Propósito
+
+O documento `architecture.md` é a **fonte única da verdade estrutural** do projeto.  
+Toda mudança que altere a organização, dependências, padrões de API ou camadas do sistema deve obrigatoriamente ser registrada aqui.
+
+### 2. Política de Atualização
+
+- **Mudanças estruturais** (ex.: criação de novas pastas, adoção de camadas, trocas de bibliotecas base, novas convenções REST) requerem atualização imediata deste arquivo.
+- Cada atualização gera uma **nova versão incremental** (`vE1.3`, `vE1.4`, …) registrada no topo do documento.
+- A atualização deve ocorrer **antes do merge** da branch que introduz a modificação.
+
+### 3. Controle de Versão
+
+- O versionamento segue o padrão:  
+  `docs(architecture): atualiza arquitetura para vE1.X — <descrição curta>`
+- Nenhuma sprint pode ser encerrada se a versão local do `architecture.md` estiver desatualizada.
+
+### 4. Protocolo de Sincronização Git
+
+Para garantir consistência entre branches e histórico limpo, a configuração de merge padrão deve ser mantida:
+
+```bash
+git config pull.rebase false
+```
+
+Essa política evita rebase automático e preserva a rastreabilidade temporal do projeto, assegurando que merges sempre reflitam o fluxo real de desenvolvimento.
+
+### 5. Responsabilidade
+
+- **Bruno (Engenheiro Fullstack)** é o mantenedor da versão local e executor dos commits.
+- **IA Orion (Diretor Técnico Virtual)** é responsável por identificar, propor e exigir atualizações sempre que alterações estruturais forem detectadas.

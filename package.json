@@ -1,0 +1,26 @@
+{
+  "name": "borrow-books",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "format": "prettier --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CorreaBrunoMiguel/borrow-books.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CorreaBrunoMiguel/borrow-books/issues"
+  },
+  "homepage": "https://github.com/CorreaBrunoMiguel/borrow-books#readme",
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  }
+}

@@ -1,3 +1,15 @@
+---
+Orion-Doc: architecture
+Categoria: Documentação Técnica
+Versão: vE1.2
+Data: { { DATA_ATUAL } }
+Atualização: obrigatória antes de merge
+Descrição: Documento de referência arquitetural. Define stack, camadas, convenções REST e políticas de governança técnica do sistema.
+Responsável: Bruno (Engenheiro Fullstack)
+Fiscal: IA Orion (Diretor Técnico Virtual)
+Fonte de verdade: Sim
+---
+
 # 🧩 Arquitetura — Projeto Biblioteca Pública
 
 **Versão:** vE1.2  

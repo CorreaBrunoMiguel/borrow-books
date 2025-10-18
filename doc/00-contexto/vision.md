@@ -1,3 +1,15 @@
+---
+Orion-Doc: vision
+Categoria: Contexto e Estratégia
+Versão: vE1.2
+Data: { { DATA_ATUAL } }
+Atualização: apenas em reorientação estratégica
+Descrição: Documento de visão fundacional. Define propósito, escopo do MVP, critérios de sucesso e valores que guiam o desenvolvimento do sistema.
+Responsável: Bruno (Engenheiro Fullstack)
+Fiscal: IA Orion (Diretor Técnico Virtual)
+Fonte de verdade: Sim
+---
+
 # Projeto: Simulador de Biblioteca Pública
 
 ## Propósito

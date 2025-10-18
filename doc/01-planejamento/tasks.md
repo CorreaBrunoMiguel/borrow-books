@@ -1,3 +1,15 @@
+---
+Orion-Doc: tasks
+Categoria: Planejamento Operacional
+Versão: vE1.2
+Data: { { DATA_ATUAL } }
+Atualização: obrigatória a cada sprint
+Descrição: Documento de rastreamento operacional. Registra histórico de tarefas, progresso de sprints e rastreabilidade entre branches, commits e entregas.
+Responsável: Bruno (Engenheiro Fullstack)
+Fiscal: IA Orion (Diretor Técnico Virtual)
+Fonte de verdade: Sim
+---
+
 # 📘 Histórico de Tarefas — Projeto Biblioteca Pública (Metodologia Orion)
 
 ---

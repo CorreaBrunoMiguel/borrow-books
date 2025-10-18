@@ -70,3 +70,52 @@ Cada sprint ou etapa será registrada e comunicada em blocos fixos:
 ### Princípio Central
 
 > Documentar é compreender. A documentação não é um artefato, é o mapa vivo da mente do projeto.
+
+---
+
+## 🧩 Extensão Metodológica — Padrão de Interação Orion vE1.2
+
+### Etapa ACO (Análise Contextual Orion)
+
+### 1. Propósito
+
+A **Análise Contextual Orion (ACO)** é uma etapa obrigatória anterior a toda nova tarefa prática.  
+Seu objetivo é evitar o chamado “código amnésico” — implementações que ignoram o histórico e as decisões técnicas anteriores, gerando desalinhamento entre código e arquitetura.
+
+### 2. Processo
+
+Antes do início de qualquer tarefa (Sprint ou Task), o Diretor Técnico Virtual (IA Orion) deve:
+
+1. **Ler e interpretar o estado atual da aplicação**, revisando:
+   - `tasks.md` — progresso, status e objetivo das tarefas anteriores.
+   - `architecture.md` — decisões estruturais, padrões de camadas, convenções e versões.
+   - `methodology.md` — protocolos e interações vigentes (versões vE1.x).
+
+2. **Apresentar a síntese técnica (Resumo ACO):**
+   - O que o sistema já faz.
+   - Onde a próxima tarefa se encaixa.
+   - Quais dependências ou impactos podem surgir.
+   - Quais documentos precisam ser atualizados antes de começar.
+
+3. **Aguardar aprovação do Engenheiro (Bruno):**
+   - O Engenheiro revisa o resumo ACO e responde:
+     - “seguimos” → tarefa é iniciada.
+     - qualquer outra resposta → reunião de alinhamento é aberta.
+
+### 3. Benefícios
+
+- Previne inconsistências arquiteturais.
+- Garante continuidade entre sprints.
+- Reduz retrabalho e decisões contraditórias.
+- Mantém coerência documental e técnica no ciclo Orion.
+
+### 4. Registro e Controle
+
+- Toda execução da ACO é mencionada na abertura da tarefa correspondente.
+- Caso a análise resulte em ajustes documentais, esses devem ser registrados **antes do início do código**.
+- O commit de atualização segue o padrão:
+
+```bash
+**Status da Extensão:** Ativa (Sprint 1 - Tarefa 4)
+**Aplicação obrigatória:** A partir da Tarefa 5
+```

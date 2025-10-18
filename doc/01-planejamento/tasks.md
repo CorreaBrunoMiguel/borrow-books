@@ -118,7 +118,6 @@ Validação feita via Prisma Studio.
 
 ## 🔁 Próximos Passos
 
-- **Tarefa 4:** Autenticação (JWT + bcrypt)
 - **Tarefa 5:** Middleware de autorização e controle de roles
 - **Tarefa 6:** CRUD completo de livros e empréstimos
 
@@ -127,3 +126,64 @@ Validação feita via Prisma Studio.
 **Última atualização:** `{{DATA_ATUAL}}`  
 **Atualizado por:** IA Orion (Diretor Técnico Virtual)  
 **Revisado e validado por:** Bruno (Engenheiro Fullstack)
+
+### 🧩 Tarefa 5 — Middleware de Autorização e Controle de Roles
+
+**Descrição:**
+Implementação e integração do middleware de autorização (`verifyRole`) ao sistema existente.
+Visa consolidar o controle de acesso por papéis (`ADMIN`, `BIBLIOTECARIO`, `USER`), garantindo coerência entre autenticação (identidade) e autorização (permissão).
+Inclui revisão do middleware, criação de rotas de teste e atualização documental.
+
+**Resultados Esperados:**
+
+- Middleware revisado e funcional.
+- Rotas protegidas por papel com respostas HTTP coerentes (`401`, `403`).
+- Integração com `verifyToken` validada.
+- Documentação (`architecture.md` e `tasks.md`) sincronizada.
+
+**Status:** 🚧 Em execução
+**Branch:** `feature/05-authorization-middleware`
+**Commit Final (planejado):**
+`feat(auth): integra middleware de autorização por roles e atualiza arquitetura Orion vE1.3`
+
+---
+
+**Subtarefas:**
+
+| Nº  | Tipo     | Descrição                                    | Resultado esperado     |
+| --- | -------- | -------------------------------------------- | ---------------------- |
+| 5.1 | refactor | Revisar `verifyRole` e padronizar respostas  | Middleware robusto     |
+| 5.2 | feature  | Integrar middleware a rotas de exemplo       | Rotas protegidas       |
+| 5.3 | docs     | Atualizar `architecture.md` e `tasks.md`     | Docs sincronizadas     |
+| 5.4 | test     | Testar fluxos com tokens válidos e inválidos | Autorização confirmada |
+
+---
+
+**Critérios de Sucesso:**
+
+- RBAC operacional.
+- Fluxo ponta a ponta testado (login → token → rota protegida).
+- Nenhuma rota sensível acessível sem token válido.
+- Documentação Orion atualizada.
+
+---
+
+**Riscos e Observações:**
+
+- Falta de `JWT_SECRET` no `.env` impede validação.
+- Roles hardcoded devem ser evitadas.
+- Commit sem atualização de doc invalida a verificação leve.
+
+---
+
+**Lição Esperada:**
+Compreensão prática da diferença entre autenticação e autorização.
+Capacidade de expandir o sistema com segurança e rastreabilidade.
+
+---
+
+**Registro Orion**
+ACO-005 | Versão vE1.3 | Sprint 1
+Status: ✅ Aprovada para execução
+
+---

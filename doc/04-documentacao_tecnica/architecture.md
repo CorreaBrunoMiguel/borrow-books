@@ -101,6 +101,68 @@ Estrutura validada e consolidada na **Sprint 1 – Tarefa 4**, conforme nota de 
 - Secret key armazenada em `.env`.
 - Padrão de resposta consistente para falhas (`401`, `403`, `500`).
 
+Perfeito, Bruno. Aqui vai a atualização sugerida para o `architecture.md`, refletindo a adição do middleware RBAC e as rotas de teste protegidas.
+Essa versão é incremental (vE1.3) e segue o estilo Orion: técnica, rastreável e sintética — sem floreio narrativo.
+
+#### 🔐 Camada de Autenticação e Autorização (vE1.3)
+
+**Objetivo:**
+Garantir controle de acesso seguro por identidade (JWT) e papel (RBAC).
+
+**Componentes principais:**
+
+| Arquivo                          | Função                                                                                      |
+| -------------------------------- | ------------------------------------------------------------------------------------------- |
+| `middlewares/auth.middleware.js` | Contém `verifyToken` (validação JWT) e `verifyRole` (autorização por papel).                |
+| `routes/test.routes.js`          | Rotas protegidas para validação do middleware (`/test/user`, `/test/staff`, `/test/admin`). |
+
+**Fluxo Operacional:**
+
+1. Usuário autentica via `/auth/login`.
+   → Backend gera **JWT** com payload `{ id, email, role }`.
+2. Requisições subsequentes incluem cabeçalho:
+   `Authorization: Bearer <token>`.
+3. `verifyToken` valida o token e insere `req.user`.
+4. `verifyRole` filtra o acesso conforme papéis permitidos.
+
+**Papéis registrados (enum Role):**
+
+- `ADMIN`
+- `BIBLIOTECARIO`
+- `USER`
+
+**Padrão de resposta (vE1.3):**
+
+```json
+{
+  "code": 403,
+  "message": "Acesso negado. Permissão insuficiente.",
+  "timestamp": "2025-10-18T20:00:00Z"
+}
+```
+
+**Logs semânticos:**
+
+- `console.info` → Acesso autorizado.
+- `console.warn` → Falha prevista (token ausente/inválido).
+- `console.error` → Erros inesperados.
+
+**Rotas protegidas de teste:**
+
+| Rota          | Método | Proteção                                              | Descrição                            |
+| ------------- | ------ | ----------------------------------------------------- | ------------------------------------ |
+| `/test/user`  | GET    | `verifyToken`                                         | Acesso autenticado (qualquer papel). |
+| `/test/staff` | GET    | `verifyToken`, `verifyRole('ADMIN', 'BIBLIOTECARIO')` | Restrito à equipe administrativa.    |
+| `/test/admin` | GET    | `verifyToken`, `verifyRole('ADMIN')`                  | Exclusivo para administradores.      |
+
+---
+
+**Registro Orion:**
+ACO-005 | vE1.3 | Sprint 1
+Status: ✅ Sincronizado com código e testes de autorização.
+
+---
+
 ---
 
 ### 4. **Formatação, Logging e Boas Práticas**

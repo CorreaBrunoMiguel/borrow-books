@@ -1,8 +1,10 @@
 import express from 'express';
 import cors from 'cors';
 import 'dotenv/config.js';
+
 import prisma from './config/prisma.js';
 import authRoutes from './routes/auth.routes.js';
+import testRoutes from './routes/test.routes.js';
 
 const app = express();
 
@@ -14,6 +16,7 @@ app.get('/', (_, res) => res.send('Servidor ativo 🚀'));
 
 // Rotas principais
 app.use('/api/auth', authRoutes);
+app.use('/test', testRoutes);
 
 // Middleware global de erro
 app.use((err, req, res, next) => {

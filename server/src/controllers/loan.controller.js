@@ -7,21 +7,21 @@ export async function createLoan(req, res) {
     const { userId, bookId } = req.body;
 
     const book = await prisma.book.findUnique({ where: { id: bookId } });
-    if (!book || book.availableCopies <= 0)
+    if (!book || book.available <= 0)
       return res.status(400).json({ message: 'Livro indisponível.' });
 
     const loan = await prisma.loan.create({
       data: {
         userId,
         bookId,
-        loanDate: new Date(),
+        borrowedAt: new Date(),
         status: 'BORROWED',
       },
     });
 
     await prisma.book.update({
       where: { id: bookId },
-      data: { availableCopies: { decrement: 1 } },
+      data: { available: { decrement: 1 } },
     });
 
     res.status(201).json({ message: 'Empréstimo criado com sucesso.', loan });
@@ -62,7 +62,7 @@ export async function updateLoan(req, res) {
     if (status === 'RETURNED') {
       await prisma.book.update({
         where: { id: loan.bookId },
-        data: { availableCopies: { increment: 1 } },
+        data: { available: { increment: 1 } },
       });
     }
 

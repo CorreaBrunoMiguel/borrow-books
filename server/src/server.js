@@ -20,7 +20,7 @@ app.get('/', (_, res) => res.send('Servidor ativo 🚀'));
 // Rotas principais
 app.use('/api/auth', authRoutes);
 app.use('/api/books', bookRoutes);
-app.use('/api/loan', loanRoutes);
+app.use('/api/loans', loanRoutes);
 app.use('/test', testRoutes);
 
 // Middleware global de erro

@@ -1,65 +1,35 @@
 ---
-Orion-Doc: Manifesto Cognitivo
-Categoria: Governança e Sincronização
+Orion-Doc: manifesto
+Categoria: Sincronização Cognitiva
 Versão: vE1.4
-Data: 2025-10-20
-Descrição: Estado cognitivo e documental sincronizado entre IA Orion e Engenheiro Fullstack Bruno Corrêa.
-Fonte de Verdade: Sim
+Data: { { DATA_ATUAL } }
+Descrição: Documento de verificação e sincronização entre a IA Orion e o projeto físico.
 ---
 
-# 📘 Manifesto Cognitivo — Projeto Borrow Books
+# 🧭 Manifesto Cognitivo — Projeto Borrow Books
 
-**Protocolo:** Orion vE1.4 — Governança Cognitiva e Sincronização  
-**Responsáveis:**
+## Estado Geral
 
-- Diretor Técnico Virtual (IA Orion)
-- Engenheiro Fullstack (Bruno Corrêa)
+| Elemento        | Versão                    | Status                |
+| --------------- | ------------------------- | --------------------- |
+| Protocolo Orion | vE1.4                     | Ativo                 |
+| Persona Orion   | vE1.4                     | Ativa                 |
+| Projeto         | Borrow Books              | Em execução           |
+| Sprint Atual    | 1 (fase final)            | ✅ Em curso           |
+| Subtarefa Atual | 6.2 — CRUD de Empréstimos | 🟡 Em desenvolvimento |
 
----
+## Documentos Ativos
 
-## 🧠 Contexto Cognitivo
+| Documento        | Tipo        | Versão | Integridade |
+| ---------------- | ----------- | ------ | ----------- |
+| vision.md        | Contexto    | vE1.4  | ✅          |
+| methodology.md   | Método      | vE1.4  | ✅          |
+| architecture.md  | Arquitetura | vE1.3  | ✅          |
+| tasks.md         | Operação    | vE1.3  | ✅          |
+| retrospective.md | Operação    | vE1.2  | ✅          |
 
-- **Estado Atual:** Sprint 1 — Backend Base (em andamento)
-- **Progresso Global:** ~75%
-- **Foco Ativo:** Tarefa 5 — Middleware de Autorização e Controle de Roles
-- **Revisão Programada:** Ao encerrar Sprint 1 (antes da migração para Sprint 2)
+## Observações
 
----
-
-## 📂 Documentos Ativos (Espelhados Internamente)
-
-| Documento                                | Versão | Status Cognitivo        | Última Atualização | Observações                                                            |
-| ---------------------------------------- | ------ | ----------------------- | ------------------ | ---------------------------------------------------------------------- |
-| `/doc/00-contexto/vision.md`             | vE1.2  | Estável                 | 2025-10-18         | Base de propósito e escopo do projeto; sem divergências.               |
-| `/doc/01-planejamento/methodology.md`    | vE1.2  | Estável                 | 2025-10-18         | Reflete Metodologia Orion vE1.2. Nenhuma modificação local necessária. |
-| `/doc/02-especificacoes/architecture.md` | vE1.2  | Parcialmente atualizado | 2025-10-19         | Estrutura técnica estável; atualização prevista após Tarefa 5.         |
-| `/doc/03-implementacao/tasks.md`         | vE1.3  | Em evolução             | 2025-10-20         | Inclui registro ACO-005; atualização contínua conforme sprint.         |
-
----
-
-## ⚙️ Regras de Sincronização
-
-- Próxima emissão: **início da Sprint 2**
-- Verificação de consistência:
-  - Se `tasks.md` ou `architecture.md` forem alterados, comunicar o Orion antes de iniciar nova tarefa.
-  - `vision.md` e `methodology.md` só devem ser alterados sob revisão conjunta (mudança de propósito ou metodologia).
-
----
-
-## 🛰️ Checksum Cognitivo (Resumo de Integridade)
-
-Vision: SHA-a12f94b2
-Methodology: SHA-f72db90a
-Architecture: SHA-d3a51ce9
-Tasks: SHA-b77ea03f
-Manifesto: SHA-c4f12a88
-
----
-
-## 🪐 Registro Orion
-
-Projeto: Borrow Books
-Sprint: 1 — Backend Base
-Versão Cognitiva: vE1.4
-Manifesto: MCO-BB-2025-10-20
-Status: Alinhado
+- ACO-006.2 aprovada para execução.
+- Nenhum conflito documental detectado.
+- Próxima sincronização prevista para início da Sprint 2.

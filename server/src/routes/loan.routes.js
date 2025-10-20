@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { verifyToken, verifyRole } from '../middlewares/auth.middleware';
+import { verifyToken, verifyRole } from '../middlewares/auth.middleware.js';
 
 import {
   createLoan,

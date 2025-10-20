@@ -20,6 +20,6 @@ router.put(
   verifyRole('ADMIN', 'BIBLIOTECARIO'),
   updateBook
 );
-router.delete('/', verifyToken, verifyRole('ADMIN'), deleteBook);
+router.delete('/:id', verifyToken, verifyRole('ADMIN'), deleteBook);
 
 export default router;

@@ -31,15 +31,25 @@ export async function createLoan(req, res) {
   }
 }
 
-// Listar todos os empréstimos
+// controllers/loan.controller.js
 export async function getLoans(req, res) {
   try {
     const loans = await prisma.loan.findMany({
-      include: { user: true, book: true },
+      include: {
+        book: { select: { id: true, title: true, author: true } },
+        user: { select: { id: true, name: true, email: true } },
+      },
+      orderBy: { borrowedAt: 'desc' },
     });
-    res.status(200).json(loans);
+
+    return res.status(200).json({
+      message: 'Lista de empréstimos recuperada com sucesso.',
+      total: loans.length,
+      loans,
+    });
   } catch (error) {
-    res.status(500).json({ message: 'Erro ao buscar empréstimos.' });
+    console.error('Erro ao listar empréstimos:', error);
+    return res.status(500).json({ message: 'Erro ao listar empréstimos.' });
   }
 }
 

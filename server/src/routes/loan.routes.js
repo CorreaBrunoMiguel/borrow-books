@@ -1,24 +1,21 @@
+// loan.routes.js
 import { Router } from 'express';
-
 import { verifyToken, verifyRole } from '../middlewares/auth.middleware.js';
-
 import {
   createLoan,
-  returnLoan,
-  getAllLoans,
-  getLoansByUser,
+  getLoans,
+  updateLoan,
+  deleteLoan,
 } from '../controllers/loan.controller.js';
 
 const router = Router();
 
-router.post('/', verifyToken, verifyRole('USEr', 'BIBLIOTECARIO'), createLoan);
-router.put(
-  '/:id/return',
-  verifyToken,
-  verifyRole('USER', 'BIBLIOTECARIO'),
-  returnLoan
-);
-router.get('/', verifyToken, verifyRole('ADMIN', 'BIBLIOTECARIO'), getAllLoans);
-router.get('/user/:id', verifyToken, verifyRole('USER'), getLoansByUser);
+router.use(verifyToken);
+
+// Rotas
+router.post('/', verifyRole('ADMIN', 'BIBLIOTECARIO'), createLoan);
+router.get('/', verifyRole('ADMIN', 'BIBLIOTECARIO', 'USER'), getLoans);
+router.put('/:id', verifyRole('ADMIN', 'BIBLIOTECARIO'), updateLoan);
+router.delete('/:id', verifyRole('ADMIN'), deleteLoan);
 
 export default router;

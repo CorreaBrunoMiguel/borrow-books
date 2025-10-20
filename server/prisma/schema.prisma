@@ -31,15 +31,14 @@ model Book {
 }
 
 model Loan {
-  id         Int      @id @default(autoincrement())
-  userId     Int
-  bookId     Int
-  loanDate   DateTime @default(now())
-  returnDate DateTime?
-  status     LoanStatus @default(BORROWED)
-
-  user User @relation(fields: [userId], references: [id])
-  book Book @relation(fields: [bookId], references: [id])
+  id          Int       @id @default(autoincrement())
+  userId      Int
+  bookId      Int
+  status      LoanStatus @default(BORROWED)
+  borrowedAt  DateTime   @default(now())
+  returnedAt  DateTime?
+  user        User       @relation(fields: [userId], references: [id])
+  book        Book       @relation(fields: [bookId], references: [id])
 }
 
 enum Role {

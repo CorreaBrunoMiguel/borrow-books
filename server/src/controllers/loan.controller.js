@@ -82,6 +82,54 @@ export async function updateLoan(req, res) {
   }
 }
 
+// Devolver Empréstimo
+export async function returnLoan(req, res) {
+  try {
+    const { id } = req.params;
+
+    const loan = await prisma.loan.findUnique({
+      where: { id: parseInt(id) },
+      include: { book: true },
+    });
+
+    if (!loan) {
+      return res.status(404).json({ message: 'Empréstimo não encontrado.' });
+    }
+
+    if (loan.status === 'RETURNED') {
+      return res
+        .status(400)
+        .json({ message: 'Este empréstimo já foi devolvido.' });
+    }
+
+    await prisma.$transaction(async (tx) => {
+      await tx.loan.update({
+        where: { id: loan.id },
+        data: {
+          status: 'RETURNED',
+          returnedAt: new Date(),
+        },
+      });
+
+      await tx.book.update({
+        where: { id: loan.bookId },
+        data: { available: loan.book.available + 1 },
+      });
+    });
+
+    return res.status(200).json({
+      message: 'Livro devolvido com sucesso.',
+      loanId: loan.id,
+      bookTitle: loan.book.title,
+    });
+  } catch (error) {
+    console.error('Erro ao devolver livro:', error);
+    return res
+      .status(500)
+      .json({ message: 'Erro ao processar devolução do livro.' });
+  }
+}
+
 // Deletar (somente admin/bibliotecário)
 export async function deleteLoan(req, res) {
   try {

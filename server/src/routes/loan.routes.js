@@ -8,6 +8,7 @@ import {
   deleteLoan,
   getLoanByUser,
   getLoansByBook,
+  returnLoan,
 } from '../controllers/loan.controller.js';
 
 const router = Router();
@@ -30,6 +31,12 @@ router.get(
   getLoansByBook
 );
 router.put('/:id', verifyRole('ADMIN', 'BIBLIOTECARIO'), updateLoan);
+router.patch(
+  '/:id/return',
+  verifyToken,
+  verifyRole('ADMIN', 'BIBLIOTECARIO'),
+  returnLoan
+);
 router.delete('/:id', verifyRole('ADMIN'), deleteLoan);
 
 export default router;

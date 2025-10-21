@@ -131,3 +131,35 @@ export async function getLoanByUser(req, res) {
       .json({ message: 'Erro ao buscar histórico de empréstimos.' });
   }
 }
+
+// Empréstimos por Livro
+export async function getLoansByBook(req, res) {
+  try {
+    const { id } = req.params;
+
+    const loans = await prisma.loan.findMany({
+      where: { bookId: parseInt(id) },
+      include: {
+        user: { select: { id: true, name: true, email: true } },
+      },
+      orderBy: { borrowedAt: 'desc' },
+    });
+
+    if (loans.length === 0) {
+      return res
+        .status(404)
+        .json({ message: 'Nenhum empréstimo encontrado para este livro.' });
+    }
+
+    return res.status(200).json({
+      message: 'Histórico de empréstimos do livro recuperado com sucesso.',
+      total: loans.length,
+      loans,
+    });
+  } catch (error) {
+    console.error('Erro ao buscar histórico de empréstimos por livro:', error);
+    return res.status(500).json({
+      message: 'Erro ao buscar histórico de empréstimos por livro.',
+    });
+  }
+}

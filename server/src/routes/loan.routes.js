@@ -7,6 +7,7 @@ import {
   updateLoan,
   deleteLoan,
   getLoanByUser,
+  getLoansByBook,
 } from '../controllers/loan.controller.js';
 
 const router = Router();
@@ -21,6 +22,12 @@ router.get(
   verifyToken,
   verifyRole('ADMIN', 'BIBLIOTECARIO', 'USER'),
   getLoanByUser
+);
+router.get(
+  '/book/:id',
+  verifyToken,
+  verifyRole('ADMIN', 'BIBLIOTECARIO'),
+  getLoansByBook
 );
 router.put('/:id', verifyRole('ADMIN', 'BIBLIOTECARIO'), updateLoan);
 router.delete('/:id', verifyRole('ADMIN'), deleteLoan);

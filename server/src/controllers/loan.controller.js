@@ -98,3 +98,36 @@ export async function deleteLoan(req, res) {
     res.status(500).json({ message: 'Erro ao remover empréstimo.' });
   }
 }
+
+// Empréstimo por usuário
+export async function getLoanByUser(req, res) {
+  try {
+    const { id } = req.params;
+
+    const requester = req.user;
+    if (requester.role === 'USER' && requester.id !== parseInt(id)) {
+      return res
+        .status(403)
+        .json({ message: 'Acesso negado ao histórico de outro usuário' });
+    }
+
+    const loans = await prisma.loan.findMany({
+      where: { userId: parseInt(id) },
+      include: {
+        book: { select: { title: true, author: true } },
+      },
+      orderBy: { borrowedAt: 'desc' },
+    });
+
+    return res.status(200).json({
+      message: 'Histórico de empréstimo recuperado com sucesso.',
+      total: loans.length,
+      loans,
+    });
+  } catch (error) {
+    console.error('Erro ao buscar histórico de empréstimos:', error);
+    return res
+      .status(500)
+      .json({ message: 'Erro ao buscar histórico de empréstimos.' });
+  }
+}
